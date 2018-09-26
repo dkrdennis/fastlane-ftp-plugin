@@ -36,7 +36,7 @@ module Fastlane
         ftp = Net::FTP.new
         ftp.connect(params[:host], params[:port])
         ftp.login(params[:username], params[:password])
-        ftp.passive = true
+        ftp.passive = false
         ftp.chdir(params[:upload][:dest])
         transferred = 0
         filesize = File.size(params[:upload][:src])
