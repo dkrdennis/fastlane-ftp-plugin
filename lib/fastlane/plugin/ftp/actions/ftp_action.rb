@@ -40,7 +40,7 @@ module Fastlane
         ftp.chdir(params[:upload][:dest])
         transferred = 0
         filesize = File.size(params[:upload][:src])
-        ftp.putbinaryfile(params[:upload][:src], params[:upload][:src].split("/").last, 200) do |data|
+        ftp.putbinaryfile(params[:upload][:src], params[:upload][:src].split("/").last, 50) do |data|
           transferred += data.size
           indicate_progress(transferred, filesize, params[:simple_progress_bar])
         end
